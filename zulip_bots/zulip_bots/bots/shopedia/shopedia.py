@@ -24,9 +24,11 @@ class SusiHandler(object):
         words = msg.split(' ')
         query = words[len(words) - 1] 
         query = query[:-1]   
-        reply = requests.post("https://localhost:3000/consumer/search", data={'itemName': query, 'latitude': '31', 'longitude': '76'})
+        reply = requests.post("https://shopedia.herokuapp.com/consumer/search", data={'itemName': query, 'latitude': '31', 'longitude': '76'})
         try:
-            answer = reply.json()['shopName'][0]['distance'][0]
+            answer = reply.json()[0]['shopName'] + ' is nearby!'
+            # answer = reply.json()[0]['shopName']+ 'will find you a ' + query + '. It\'s just ' +reply.json()[0]['distance'] + 'kilometers away!'
+            # print(answer)
         # except Exception:
         except:
             answer = "I don't understand. Can you rephrase?"
