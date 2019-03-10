@@ -6,6 +6,7 @@ class SusiHandler(object):
     '''
     Shopedia
     To create and know more of SUSI skills go to ``
+
     '''
 
     def usage(self) -> str:
